@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://di43tdtq5j75r"]
+
+[ext_resource type="PackedScene" uid="uid://c4sj7hbyq0hrj" path="res://scenes/trap.tscn" id="1_7v1b5"]
+[ext_resource type="Script" path="res://scripts/spike_ball.gd" id="2_sexnr"]
+[ext_resource type="Texture2D" uid="uid://bb8c8xstyp8k5" path="res://assets/traps/Spiked Ball.png" id="2_x1gfi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7238"]
+radius = 12.0416
+
+[sub_resource type="Animation" id="Animation_jaxlo"]
+resource_name = "rotate"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_075eo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hrpfk"]
+_data = {
+"RESET": SubResource("Animation_075eo"),
+"rotate": SubResource("Animation_jaxlo")
+}
+
+[node name="SpikeBall" instance=ExtResource("1_7v1b5")]
+z_index = -1
+script = ExtResource("2_sexnr")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_q7238")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_x1gfi")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_hrpfk")
+}
+autoplay = "rotate"

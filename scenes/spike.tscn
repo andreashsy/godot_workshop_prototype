@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ksov3l11rsy5"]
+
+[ext_resource type="PackedScene" uid="uid://c4sj7hbyq0hrj" path="res://scenes/trap.tscn" id="1_eus3d"]
+[ext_resource type="Script" path="res://scripts/spike.gd" id="2_6k0as"]
+[ext_resource type="Texture2D" uid="uid://1gqhcpqnlcxu" path="res://assets/traps/Spike.png" id="2_htf3g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3ow5"]
+size = Vector2(31, 8)
+
+[node name="Spike" instance=ExtResource("1_eus3d")]
+script = ExtResource("2_6k0as")
+MOVEMENT = 50
+DURATION = 2.0
+HURT = 2
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(7.5, 4)
+shape = SubResource("RectangleShape2D_n3ow5")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_htf3g")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." index="2"]
+position = Vector2(16, 0)
+texture = ExtResource("2_htf3g")

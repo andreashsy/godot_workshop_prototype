@@ -54,6 +54,7 @@ animations = [{
 }]
 
 [node name="Item" type="Area2D"]
+collision_layer = 4
 script = ExtResource("1_u18rh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

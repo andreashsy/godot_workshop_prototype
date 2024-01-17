@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4sj7hbyq0hrj"]
+
+[ext_resource type="Script" path="res://scripts/trap.gd" id="1_fk77l"]
+[ext_resource type="AudioStream" uid="uid://ds64h6r480580" path="res://assets/audio/hurt.wav" id="2_7428d"]
+
+[node name="Trap" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_fk77l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_7428d")

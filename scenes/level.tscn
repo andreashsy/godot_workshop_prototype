@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmd745plyxo0o"]
+[gd_scene load_steps=10 format=3 uid="uid://bmd745plyxo0o"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_j2jxp"]
 [ext_resource type="Texture2D" uid="uid://c0oysd4nhdmug" path="res://assets/Terrain (16x16).png" id="1_wctjx"]
 [ext_resource type="PackedScene" uid="uid://o6tdu5564giv" path="res://scenes/ninja_frog.tscn" id="2_ahte1"]
+[ext_resource type="PackedScene" uid="uid://1cvoxasei0a6" path="res://scenes/apple.tscn" id="4_nokjo"]
+[ext_resource type="PackedScene" uid="uid://6awga7ba6loc" path="res://scenes/pineapple.tscn" id="5_ksk03"]
+[ext_resource type="PackedScene" uid="uid://cbgdhj8vrqrwb" path="res://scenes/hud.tscn" id="6_qnp1h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5f636"]
 texture = ExtResource("1_wctjx")
@@ -495,6 +498,7 @@ position = Vector2(594, 672)
 shape = SubResource("RectangleShape2D_1i7ev")
 
 [node name="NinjaFrog" parent="." instance=ExtResource("2_ahte1")]
+JUMP = 250.0
 
 [node name="StartPoistions" type="Node" parent="."]
 
@@ -506,5 +510,27 @@ position = Vector2(-11, 485)
 
 [node name="StartPos3" type="Marker2D" parent="StartPoistions" groups=["start_pos"]]
 position = Vector2(1123, 518)
+
+[node name="Rewards" type="Node" parent="."]
+
+[node name="Apple" parent="Rewards" instance=ExtResource("4_nokjo")]
+position = Vector2(270, 564)
+
+[node name="Apple4" parent="Rewards" instance=ExtResource("4_nokjo")]
+position = Vector2(243, 564)
+
+[node name="Apple5" parent="Rewards" instance=ExtResource("4_nokjo")]
+position = Vector2(298, 564)
+
+[node name="Apple6" parent="Rewards" instance=ExtResource("4_nokjo")]
+position = Vector2(270, 526)
+
+[node name="Pineapple" parent="Rewards" instance=ExtResource("5_ksk03")]
+position = Vector2(256, 542)
+
+[node name="Pineapple2" parent="Rewards" instance=ExtResource("5_ksk03")]
+position = Vector2(284, 541)
+
+[node name="HUD" parent="." instance=ExtResource("6_qnp1h")]
 
 [connection signal="body_entered" from="DeadZone" to="." method="_on_dead_zone_body_entered"]

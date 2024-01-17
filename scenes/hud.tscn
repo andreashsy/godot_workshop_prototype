@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbgdhj8vrqrwb"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_nb6h0"]
+[ext_resource type="FontFile" uid="uid://0fr0no0womuo" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_xvjc7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6tf0j"]
+font = ExtResource("1_xvjc7")
+font_size = 32
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.337255)
+shadow_offset = Vector2(3, 3)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_nb6h0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_right = 0.182292
+anchor_bottom = 0.0509259
+grow_horizontal = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+metadata/_edit_use_anchors_ = true
+
+[node name="Score" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Score"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Score/HBoxContainer"]
+layout_mode = 2
+text = "Score"
+label_settings = SubResource("LabelSettings_6tf0j")
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="MarginContainer/Score/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "000"
+label_settings = SubResource("LabelSettings_6tf0j")
+horizontal_alignment = 2
+vertical_alignment = 1

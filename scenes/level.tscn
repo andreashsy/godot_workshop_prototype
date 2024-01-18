@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmd745plyxo0o"]
+[gd_scene load_steps=13 format=3 uid="uid://bmd745plyxo0o"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_j2jxp"]
 [ext_resource type="Texture2D" uid="uid://c0oysd4nhdmug" path="res://assets/Terrain (16x16).png" id="1_wctjx"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cbgdhj8vrqrwb" path="res://scenes/hud.tscn" id="6_qnp1h"]
 [ext_resource type="PackedScene" uid="uid://c5xqajydxqiyt" path="res://scenes/background.tscn" id="7_42bsy"]
 [ext_resource type="PackedScene" uid="uid://ksov3l11rsy5" path="res://scenes/spike.tscn" id="7_awtor"]
+[ext_resource type="PackedScene" uid="uid://cs5177066bgcd" path="res://scenes/rino.tscn" id="7_eomo6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5f636"]
 texture = ExtResource("1_wctjx")
@@ -499,9 +500,6 @@ collision_layer = 0
 position = Vector2(594, 672)
 shape = SubResource("RectangleShape2D_1i7ev")
 
-[node name="NinjaFrog" parent="." instance=ExtResource("2_ahte1")]
-JUMP = 250.0
-
 [node name="StartPoistions" type="Node" parent="."]
 
 [node name="StartPos" type="Marker2D" parent="StartPoistions" groups=["start_pos"]]
@@ -547,10 +545,18 @@ position = Vector2(323, 591)
 [node name="Spike" parent="Traps" instance=ExtResource("7_awtor")]
 position = Vector2(5, 585)
 
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Rino" parent="Enemies" instance=ExtResource("7_eomo6")]
+position = Vector2(723, 551)
+
 [node name="HUD" parent="." instance=ExtResource("6_qnp1h")]
 
 [node name="Background" parent="." instance=ExtResource("7_42bsy")]
 offset = Vector2(-250, -50)
 transform = Transform2D(1, 0, 0, 1, -250, -50)
+
+[node name="NinjaFrog" parent="." instance=ExtResource("2_ahte1")]
+JUMP = 250.0
 
 [connection signal="body_entered" from="DeadZone" to="." method="_on_dead_zone_body_entered"]

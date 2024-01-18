@@ -255,7 +255,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nn6rt"]
 size = Vector2(14, 21)
 
-[node name="NinjaFrog" type="CharacterBody2D"]
+[node name="NinjaFrog" type="CharacterBody2D" groups=["ninja_frog"]]
 collision_mask = 2
 script = ExtResource("1_u1paa")
 JUMP = 200.0

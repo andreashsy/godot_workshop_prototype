@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmd745plyxo0o"]
+[gd_scene load_steps=12 format=3 uid="uid://bmd745plyxo0o"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_j2jxp"]
 [ext_resource type="Texture2D" uid="uid://c0oysd4nhdmug" path="res://assets/Terrain (16x16).png" id="1_wctjx"]
 [ext_resource type="PackedScene" uid="uid://o6tdu5564giv" path="res://scenes/ninja_frog.tscn" id="2_ahte1"]
-[ext_resource type="PackedScene" uid="uid://1cvoxasei0a6" path="res://scenes/apple.tscn" id="4_nokjo"]
-[ext_resource type="PackedScene" uid="uid://6awga7ba6loc" path="res://scenes/pineapple.tscn" id="5_ksk03"]
+[ext_resource type="PackedScene" uid="uid://ld05vlulsbew" path="res://scenes/fruit.tscn" id="4_blig6"]
 [ext_resource type="PackedScene" uid="uid://di43tdtq5j75r" path="res://scenes/spike_ball.tscn" id="6_qhxjm"]
 [ext_resource type="PackedScene" uid="uid://cbgdhj8vrqrwb" path="res://scenes/hud.tscn" id="6_qnp1h"]
 [ext_resource type="PackedScene" uid="uid://c5xqajydxqiyt" path="res://scenes/background.tscn" id="7_42bsy"]
@@ -516,29 +515,29 @@ position = Vector2(1123, 518)
 
 [node name="Rewards" type="Node" parent="."]
 
-[node name="Apple" parent="Rewards" instance=ExtResource("4_nokjo")]
-position = Vector2(219, 565)
-collision_layer = 1
+[node name="Fruit" parent="Rewards" instance=ExtResource("4_blig6")]
+position = Vector2(208, 562)
 
-[node name="Apple4" parent="Rewards" instance=ExtResource("4_nokjo")]
-position = Vector2(192, 565)
-collision_layer = 1
+[node name="Fruit2" parent="Rewards" instance=ExtResource("4_blig6")]
+position = Vector2(248, 562)
 
-[node name="Apple5" parent="Rewards" instance=ExtResource("4_nokjo")]
-position = Vector2(247, 565)
-collision_layer = 1
+[node name="Fruit3" parent="Rewards" instance=ExtResource("4_blig6")]
+position = Vector2(285, 561)
 
-[node name="Apple6" parent="Rewards" instance=ExtResource("4_nokjo")]
-position = Vector2(219, 527)
-collision_layer = 1
+[node name="Fruit4" parent="Rewards" instance=ExtResource("4_blig6")]
+position = Vector2(266, 534)
+reward = 4
+fruit = 1
 
-[node name="Pineapple" parent="Rewards" instance=ExtResource("5_ksk03")]
-position = Vector2(205, 543)
-collision_layer = 1
+[node name="Fruit5" parent="Rewards" instance=ExtResource("4_blig6")]
+position = Vector2(228, 535)
+reward = 4
+fruit = 1
 
-[node name="Pineapple2" parent="Rewards" instance=ExtResource("5_ksk03")]
-position = Vector2(233, 542)
-collision_layer = 1
+[node name="Fruit6" parent="Rewards" instance=ExtResource("4_blig6")]
+position = Vector2(247, 509)
+reward = 5
+fruit = 2
 
 [node name="Traps" type="Node" parent="."]
 

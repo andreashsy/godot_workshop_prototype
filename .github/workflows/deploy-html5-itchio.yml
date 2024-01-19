@@ -38,5 +38,5 @@ jobs:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
         run: |
           butler login
-          butler push html5.zip andygame/workshop-prototype
+          butler push html5.zip andygame/workshop-prototype:html5
 

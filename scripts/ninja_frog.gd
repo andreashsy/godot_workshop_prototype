@@ -8,6 +8,9 @@ extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var audio_player = $AudioPlayer
 
+func _ready():
+   GameManager.on_player_die.connect(_on_player_die)
+
 func _physics_process(delta):
    
    var dir
@@ -35,3 +38,10 @@ func _physics_process(delta):
    
    move_and_slide()
    animated_sprite_2d.play(anim)
+   
+func _on_player_die() -> void:
+   set_physics_process(false)
+   print(">>>> in on_player_die in ninja frog")
+   animated_sprite_2d.play("hit")
+   await get_tree().create_timer(2).timeout
+   get_tree().reload_current_scene()

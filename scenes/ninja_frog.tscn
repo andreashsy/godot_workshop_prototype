@@ -256,6 +256,7 @@ animations = [{
 size = Vector2(14, 21)
 
 [node name="NinjaFrog" type="CharacterBody2D" groups=["ninja_frog"]]
+z_index = 5
 collision_mask = 2
 script = ExtResource("1_u1paa")
 JUMP = 200.0

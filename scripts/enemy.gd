@@ -21,6 +21,7 @@ func _physics_process(delta):
 func _on_hit_box(body: Node2D) -> void:
    set_physics_process(false)
    print("Enemy hit box: ", body)
+   GameManager.on_player_die.emit()
    
 func _on_hurt_box(body: Node2D) -> void:
    set_physics_process(false)

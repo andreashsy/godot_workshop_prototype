@@ -32,7 +32,6 @@ jobs:
           mkdir export
           godot --headless --path main --export-release html5cicd ../export/index.html
           zip -j html5.zip export/*
-          ls -l
 
       - name: Deploy
         env:

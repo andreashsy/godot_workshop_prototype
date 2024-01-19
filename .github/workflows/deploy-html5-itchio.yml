@@ -11,7 +11,7 @@ jobs:
       - name: Checkout main repo
         uses: actions/checkout@v4
         with:
-          path: master
+          path: main
       
       - name: Checkout export tools repo
         uses: actions/checkout@v4
@@ -21,20 +21,16 @@ jobs:
       
       - name: Setup export tools
         run: |
-          ls -l
           unzip export-utils/Godot_v4.2.1-stable_linux.x86_64.zip
           unzip export-utils/butler-linux-amd64.zip
           mv Godot_v4.2.1-stable_linux.x86_64 /usr/local/bin/godot
           mv butler /usr/local/bin/butler
-          ls -l
           rm -f *7z*.so
-          rm -f *.zip
 
       - name: Build html5
         run: |
-          ls -l
           mkdir export
-          godot --path main --export html5cicd ../export/index.html
+          godot --headless --path main --export-release html5cicd ../export/index.html
           zip -j html5.zip export/*
           ls -l
 

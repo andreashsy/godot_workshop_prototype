@@ -16,18 +16,17 @@ func _physics_process(delta):
    var dir
    var anim = "idle"
    
+   dir = Input.get_axis("left", "right")
+   velocity.x = RUN_SPEED * dir
+   if 0 != dir:
+      anim = "run"
+      animated_sprite_2d.flip_h = dir < 0
+
    if not is_on_floor():
       velocity.y += GRAVITY * delta
       anim = "fall"
       
    else:
-      dir = Input.get_axis("left", "right")
-      velocity.x = RUN_SPEED * dir
-      
-      if 0 != dir:
-         anim = "run"
-         animated_sprite_2d.flip_h = dir < 0
-      
       if Input.is_action_just_pressed("jump"):
          velocity.y = -JUMP
          anim = "jump"
